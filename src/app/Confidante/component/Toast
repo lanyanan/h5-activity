@@ -1,0 +1,63 @@
+/**
+ * toast提示组件
+ * @author lan
+ * @dateTime 2017-09-19
+ * @param Blooen  show   toast提示是否显示 
+ * @param String  txt    toast提示内容 
+ */
+
+
+
+<template>
+    <section class="_toast" v-bind:style="{display: show ? 'block' : 'none'}"> 
+        <span>{{txt}}</span>
+    </section>
+</template>
+
+
+<script>
+  'use strict';
+  export default {
+    props:["title","showToast"],
+    data (){
+        return {
+            txt:'',
+            show: false
+        }
+    },
+    created () {
+        
+    },
+    methods: {
+
+    },
+    watch: {
+        title:function(){
+            this.txt = this.title;
+        },
+        showToast:function() {
+            this.show = this.showToast;
+        }
+    }
+  }
+</script>
+
+
+<style>
+._toast {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    margin-left: -45%;
+    color: #fff;
+    padding: 0 5%;
+    width: 90%;
+    text-align: center;
+}
+._toast span {
+    padding: 0.5rem 1rem;
+    color:#fff;
+    background: #000;
+    border-radius: 5px;
+}
+</style>
